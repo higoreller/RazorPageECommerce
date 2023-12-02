@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bem-vindo à DataAI</h1>
+    <p class="lead">O seu repositório confiável de datasets para inteligência artificial.</p>
+    
+    <div class="row justify-content-md-center">
+        @foreach (var item in Model.Datasets)
+        {
+            <div class="card col-3 m-3">
+                <img src="@item.ImageUrl" class="p-3" style="border-radius: 25px" />
+                <h5 class="card-title">@item.Title</h5>
+                <p class="card-text">@item.Description</p>
+                <a class="btn btn-primary" asp-page="/Details" asp-route-id="@item.Id" asp-route-slug="@item.SlugTitle">Ver mais</a>
+            </div>
+        }
+    </div>
+    <hr class="my-4">
+    <p>Descubra conjuntos de dados diversificados e preparados para capacitar suas soluções de IA.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Explorar Datasets</a>
+</div>
+

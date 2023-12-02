@@ -1,0 +1,24 @@
+﻿@page "/dataset/{slug}/{id}"
+@model ECommerce.Pages.DetailsModel
+
+<h2 class="my-3">@Model.Dataset.Title</h2>
+
+<div class="row">
+    <div class="col-4">
+        <img class="img-fluid rounded" src="@Model.Dataset.ImageUrl" />
+    </div>
+
+    <div class="col-6">
+        <h4 class="my-3">About:</h4>
+        <p>@Model.Dataset.Description</p>
+        <h4 class="my-3">More info:</h4>
+        <ul>
+            <li><label asp-for="Dataset.Size"></label>: @Model.Dataset.Size</li>
+            <li><label asp-for="Dataset.Source"></label>: @Model.Dataset.Source</li>
+            <li><label asp-for="Dataset.Category"></label>: @Model.Dataset.Category</li>
+            <li><label asp-for="Dataset.DateCreated"></label>: @Model.Dataset.DateCreated</li>
+            <li><label asp-for="Dataset.Format"></label>: @Model.Dataset.Format</li>
+        </ul>
+        <a class="btn my-3 btn-primary" asp-page="Edit" asp-route-id="@Model.Dataset.Id">Editar</a>
+    </div>
+</div>

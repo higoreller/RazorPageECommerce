@@ -1,0 +1,79 @@
+﻿@page
+@model ECommerce.Pages.EditModel
+
+
+<div class="row pt-5">
+    <div class="col-md-8">
+        <form method="post">
+            <h4>Alteração de Dataset</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Dataset.Id" />
+
+            <!-- Título -->
+            <div class="form-group">
+                <label asp-for="Dataset.Title" class="control-label"></label>
+                <input asp-for="Dataset.Title" class="form-control" />
+                <span asp-validation-for="Dataset.Title" class="text-danger"></span>
+            </div>
+
+            <!-- Descrição -->
+            <div class="form-group">
+                <label asp-for="Dataset.Description" class="control-label"></label>
+                <textarea asp-for="Dataset.Description" class="form-control"></textarea>
+                <span asp-validation-for="Dataset.Description" class="text-danger"></span>
+            </div>
+
+            <!-- URL da Imagem -->
+            <div class="form-group">
+                <label asp-for="Dataset.ImageUrl" class="control-label"></label>
+                <input asp-for="Dataset.ImageUrl" class="form-control" />
+                <span asp-validation-for="Dataset.ImageUrl" class="text-danger"></span>
+            </div>
+
+            <!-- Tamanho -->
+            <div class="form-group">
+                <label asp-for="Dataset.Size" class="control-label"></label>
+                <input asp-for="Dataset.Size" class="form-control" />
+                <span asp-validation-for="Dataset.Size" class="text-danger"></span>
+            </div>
+
+            <!-- Fonte -->
+            <div class="form-group">
+                <label asp-for="Dataset.Source" class="control-label"></label>
+                <input asp-for="Dataset.Source" class="form-control" />
+            </div>
+
+            <!-- Categoria -->
+            <div class="form-group">
+                <label asp-for="Dataset.Category" class="control-label"></label>
+                <input asp-for="Dataset.Category" class="form-control" />
+            </div>
+
+            <!-- Data de Criação -->
+            <div class="form-group">
+                <label asp-for="Dataset.DateCreated" class="control-label"></label>
+                <input asp-for="Dataset.DateCreated" class="form-control" type="date" />
+            </div>
+
+            <!-- Formato -->
+            <div class="form-group">
+                <label asp-for="Dataset.Format" class="control-label"></label>
+                <input asp-for="Dataset.Format" class="form-control" />
+            </div>
+
+            <!-- Botão Salvar -->
+            <div class="form-group mt-4">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <input type="submit" value="Excluir" class="btn btn-primary" asp-page-handler="Delete"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
