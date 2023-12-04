@@ -59,8 +59,37 @@
                 <label asp-for="Dataset.Format" class="control-label"></label>
                 <input asp-for="Dataset.Format" class="form-control" />
             </div>
+            
+            <!-- Marca -->
+            
+            <div class="form-group mt-3 mb-3">
+                <label asp-for="Dataset.BrandId" class="control-label"></label>
 
+                <select class="form-select"
+                        asp-for="Dataset.BrandId"
+                        asp-items="Model.BrandOptionItems">
+                    <option value="">Selecione uma opção</option>
+                </select>
+
+                <span asp-validation-for="Dataset.BrandId" class="text-danger">
+                </span>
+            </div>
+            
+            <!-- Categoria -->
+            
+            <div class="form-group mt-3 mb-3">
+                <label asp-for="Dataset.Categories" class="control-label"></label>
+
+                <select class="form-select"
+                        asp-for="CategoryIds"
+                        asp-items="Model.CategoryOptionItems">
+                </select>
+
+                <span asp-validation-for="Dataset.Categories" class="text-danger"></span>
+            </div>
+            
             <!-- Botão Salvar -->
+            
             <div class="form-group mt-4">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>

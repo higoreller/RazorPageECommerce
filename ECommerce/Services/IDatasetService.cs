@@ -1,4 +1,5 @@
 ﻿using ECommerce.Models;
+using System.Text.RegularExpressions;
 
 namespace ECommerce.Services
 {
@@ -9,5 +10,8 @@ namespace ECommerce.Services
         void Insert(Dataset dataset);
         void Update(Dataset dataset);
         void Delete(int id);
+        IList<Brand> GetAllBrands();
+        IList<Category> GetAllCategories();
+        void InitializeData();
     }
 }

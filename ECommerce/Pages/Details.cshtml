@@ -18,6 +18,17 @@
             <li><label asp-for="Dataset.Category"></label>: @Model.Dataset.Category</li>
             <li><label asp-for="Dataset.DateCreated"></label>: @Model.Dataset.DateCreated</li>
             <li><label asp-for="Dataset.Format"></label>: @Model.Dataset.Format</li>
+            @if (Model.Brand is not null)
+            {
+                <li><label asp-for="Dataset.BrandId"></label>: @Html.DisplayFor(model => model.Brand.Description)</li>
+            }
+            @if (Model.Dataset.Categories.Count > 0)
+            {
+                <li>
+                    <label asp-for="Dataset.Categories"></label>:
+                    @string.Join(", ", Model.Dataset.Categories.Select(item => item.Description))
+                </li>
+            }
         </ul>
         <a class="btn my-3 btn-primary" asp-page="Edit" asp-route-id="@Model.Dataset.Id">Editar</a>
     </div>
