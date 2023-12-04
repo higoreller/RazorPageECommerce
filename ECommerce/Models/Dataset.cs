@@ -40,5 +40,10 @@ namespace ECommerce.Models
         [Display(Name = "Formato")]
         [Required(ErrorMessage = "O campo 'Formato' é obrigatório!")]
         public string Format { get; set; }
+        
+        [Display(Name = "Marca")]
+        public int? BrandId { get; set; }
+
+        public ICollection<Category>? Categories { get; set; }
     }
 }

@@ -1,13 +1,15 @@
 ﻿using ECommerce.Models;
+using System.Text.RegularExpressions;
 
-namespace ECommerce.Services
+namespace ECommerce.Services.Memory
 {
     public class DatasetService : IDatasetService
     {
         private IList<Dataset> _datasets;
         public DatasetService() => LoadInicialList();
 
-        private void LoadInicialList() {
+        private void LoadInicialList()
+        {
             _datasets = new List<Dataset>()
             {
                 new Dataset { Id = 1, Title = "Dataset 1", Description = "Descrição 1", ImageUrl="/img/dataset-default.jpg", Size = 100, Source = "Fonte 1", Category = "Categoria 1", DateCreated = DateTime.Now, Format = "CSV" },
@@ -34,7 +36,7 @@ namespace ECommerce.Services
             return _datasets.SingleOrDefault(item => item.Id == id);
         }
 
-        public void Insert (Dataset dataset)
+        public void Insert(Dataset dataset)
         {
             var nextNumber = _datasets.Max(item => item.Id) + 1;
             dataset.Id = nextNumber;
@@ -55,13 +57,40 @@ namespace ECommerce.Services
                 datasetFound.DateCreated = dataset.DateCreated;
                 datasetFound.Format = dataset.Format;
             }
-            
+
         }
 
         public void Delete(int id)
         {
             var datasetFound = GetDataset(id);
             _datasets.Remove(datasetFound);
+        }
+
+        public IList<Brand> GetAllBrands()
+        {
+            return new List<Brand>()
+            {
+                new Brand() { Description = "OpenAI" },
+                new Brand() { Description = "Discord" },
+            new Brand() { Description = "TeamAI" },
+        };
+        }
+
+        public IList<Category> GetAllCategories()
+        {
+            return new List<Category>()
+        {
+            new Category() { Description = "Plants" },
+            new Category() { Description = "Faces" },
+            new Category() { Description = "Animals" },
+            new Category() { Description = "Numbers" },
+        };
+
+        }
+
+        public void InitializeData()
+        {
+            throw new NotImplementedException();
         }
     }
 }

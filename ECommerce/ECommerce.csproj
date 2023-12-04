@@ -6,4 +6,29 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Pages\NovaPasta1\**" />
+    <Compile Remove="Pages\NovaPasta\**" />
+    <Content Remove="Pages\NovaPasta1\**" />
+    <Content Remove="Pages\NovaPasta\**" />
+    <EmbeddedResource Remove="Pages\NovaPasta1\**" />
+    <EmbeddedResource Remove="Pages\NovaPasta\**" />
+    <None Remove="Pages\NovaPasta1\**" />
+    <None Remove="Pages\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="NToastNotify" Version="7.0.0" />
+  </ItemGroup>
+
 </Project>

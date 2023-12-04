@@ -12,9 +12,11 @@ namespace ECommerce.Pages
             _dataSetService = datasetService;
         }
         public Dataset Dataset {  get; private set; }
+        public Brand Brand { get; private set; }
         public IActionResult OnGet(int id)
         {
             Dataset = _dataSetService.GetDataset(id);
+            Brand = _dataSetService.GetAllBrands().SingleOrDefault(item=> item.Id == Dataset.BrandId);
 
             if(Dataset == null)
             {

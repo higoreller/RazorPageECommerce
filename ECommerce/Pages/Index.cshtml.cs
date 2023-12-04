@@ -14,7 +14,6 @@ namespace ECommerce.Pages
 
         public void OnGet()
         {
-            //var service = new DatasetService();
             Datasets = _dataSetService.ListAll();
         }
     }
